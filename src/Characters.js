@@ -5,6 +5,8 @@ import RemoveCharacter from './RemoveCharacter';
 import UpdateCharacter from './UpdateCharacter';
 
 class Characters extends Component {
+    
+    
     render() {
 
         if (this.props.charactersQuery.loading) {

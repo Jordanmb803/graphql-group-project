@@ -5,18 +5,20 @@ import { throwServerError } from 'apollo-link-http-common';
 
 class UpdateCharacter extends Component {
     state = {
-        picture: ''
+        editable: false
     }
 
     render(){
         return (
             <div>
+                <button onClick={() => this.setState({editable: !this.state.editable})}>Edit</button>
                 <input 
+                    className={this.state.editable ? 'pictureUrl' : 'invisable'}
                     value={this.state.picture}
                     onChange={e => this.setState({picture: e.target.value})}
                     placeholder='new pic url'
                 />
-                <button onClick={()=> this._updateCharacter()}>Update</button>
+                <button className={this.state.editable === false ? 'invisable' : 'button'} onClick={()=> this._updateCharacter()}>Update</button>
             </div>
         )
 
